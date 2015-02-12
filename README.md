@@ -1,5 +1,8 @@
 # Dropbox Provider for OAuth 2.0 Client
 
+[![Build Status](https://travis-ci.org/pixelfear/oauth2-dropbox.svg?branch=master)](https://travis-ci.org/pixelfear/oauth2-dropbox)
+[![Latest Stable Version](https://poser.pugx.org/pixelfear/oauth2-dropbox/v/stable.svg)](https://packagist.org/packages/pixelfear/oauth2-dropbox)
+
 This package provides Dropbox OAuth 2.0 support for the PHP League's [OAuth 2.0 Client](https://github.com/thephpleague/oauth2-client).
 
 ## Installation
