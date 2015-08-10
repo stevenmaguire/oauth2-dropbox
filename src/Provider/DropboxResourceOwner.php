@@ -2,14 +2,27 @@
 
 namespace Pixelfear\OAuth2\Client\Provider;
 
-use League\OAuth2\Client\Provider\GenericResourceOwner;
+use League\OAuth2\Client\Provider\ResourceOwnerInterface;
 
-/**
- * @property array $response
- * @property string $resourceOwnerId
- */
-class DropboxResourceOwner extends GenericResourceOwner
+class DropboxResourceOwner implements ResourceOwnerInterface
 {
+    /**
+     * Raw response
+     *
+     * @var array
+     */
+    protected $response;
+
+    /**
+     * Creates new resource owner.
+     *
+     * @param array  $response
+     */
+    public function __construct(array $response = array())
+    {
+        $this->response = $response;
+    }
+
     /**
      * Get resource owner id
      *
@@ -17,7 +30,7 @@ class DropboxResourceOwner extends GenericResourceOwner
      */
     public function getId()
     {
-        return $this->resourceOwnerId;
+        return $this->response['uid'] ?: null;
     }
 
     /**
@@ -28,5 +41,18 @@ class DropboxResourceOwner extends GenericResourceOwner
     public function getName()
     {
         return $this->response['display_name'] ?: null;
+    }
+
+    /**
+     * Return all of the owner details available as an array.
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        return [
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+        ];
     }
 }
