@@ -50,9 +50,6 @@ class DropboxResourceOwner implements ResourceOwnerInterface
      */
     public function toArray()
     {
-        return [
-            'id' => $this->getId(),
-            'name' => $this->getName(),
-        ];
+        return $this->response;
     }
 }
