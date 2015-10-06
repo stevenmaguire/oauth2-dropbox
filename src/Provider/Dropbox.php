@@ -65,6 +65,7 @@ class Dropbox extends AbstractProvider
     /**
      * Check a provider response for errors.
      *
+     * @link   https://www.dropbox.com/developers/core/docs
      * @throws IdentityProviderException
      * @param  ResponseInterface $response
      * @param  string $data Parsed response data
@@ -72,7 +73,13 @@ class Dropbox extends AbstractProvider
      */
     protected function checkResponse(ResponseInterface $response, $data)
     {
-        // implement me!
+        if (isset($data['error'])) {
+            throw new IdentityProviderException(
+                $data['error'] ?: $response->getReasonPhrase(),
+                $response->getStatusCode(),
+                $response
+            );
+        }
     }
 
     /**
