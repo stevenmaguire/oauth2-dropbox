@@ -46,7 +46,7 @@ class Dropbox extends AbstractProvider
      */
     public function getResourceOwnerDetailsUrl(AccessToken $token)
     {
-        return 'https://api.dropbox.com/1/account/info?access_token='.$token;
+        return 'https://api.dropbox.com/1/account/info';
     }
 
     /**
