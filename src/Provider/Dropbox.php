@@ -46,7 +46,7 @@ class Dropbox extends AbstractProvider
      */
     public function getResourceOwnerDetailsUrl(AccessToken $token)
     {
-        return 'https://api.dropbox.com/1/account/info?access_token='.$token;
+        return 'https://api.dropbox.com/1/account/info';
     }
 
     /**
@@ -94,12 +94,16 @@ class Dropbox extends AbstractProvider
         return new DropboxResourceOwner($response);
     }
 
-    /* Not sure we need this any longer
-    public function getAuthorizationUrl($options = array())
+    /**
+     * Builds the authorization URL.
+     *
+     * @param  array $options
+     * @return string Authorization URL
+     */
+    public function getAuthorizationUrl(array $options = [])
     {
         return parent::getAuthorizationUrl(array_merge([
             'approval_prompt' => []
         ], $options));
     }
-    */
 }
