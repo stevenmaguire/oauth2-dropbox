@@ -1,8 +1,5 @@
 # Dropbox Provider for OAuth 2.0 Client
 
-[![Build Status](https://travis-ci.org/stevenmaguire/oauth2-dropbox.svg?branch=master)](https://travis-ci.org/stevenmaguire/oauth2-dropbox)
-[![Latest Stable Version](https://poser.pugx.org/stevenmaguire/oauth2-dropbox/v/stable.svg)](https://packagist.org/packages/stevenmaguire/oauth2-dropbox)
-
 [![Latest Version](https://img.shields.io/github/release/stevenmaguire/oauth2-dropbox.svg?style=flat-square)](https://github.com/stevenmaguire/oauth2-dropbox/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/stevenmaguire/oauth2-dropbox/master.svg?style=flat-square)](https://travis-ci.org/stevenmaguire/oauth2-dropbox)
