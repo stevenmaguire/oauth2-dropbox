@@ -73,3 +73,24 @@ if (!isset($_GET['code'])) {
 
 ## Refreshing a Token
 Dropbox's OAuth implementation does not use refresh tokens. Access tokens are valid until a user revokes access manually, or until an app deauthorizes itself.
+
+## Testing
+
+``` bash
+$ ./vendor/bin/phpunit
+```
+
+## Contributing
+
+Please see [CONTRIBUTING](https://github.com/stevenmaguire/oauth2-dropbox/blob/master/CONTRIBUTING.md) for details.
+
+
+## Credits
+
+- [Steven Maguire](https://github.com/stevenmaguire)
+- [All Contributors](https://github.com/stevenmaguire/oauth2-dropbox/contributors)
+
+
+## License
+
+The MIT License (MIT). Please see [License File](https://github.com/stevenmaguire/oauth2-dropbox/blob/master/LICENSE) for more information.
