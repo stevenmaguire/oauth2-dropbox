@@ -1,6 +1,6 @@
 <?php
 
-namespace Pixelfear\OAuth2\Client\Test\Provider;
+namespace Stevenmaguire\OAuth2\Client\Test\Provider;
 
 use Mockery as m;
 
@@ -10,7 +10,7 @@ class DropboxTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->provider = new \Pixelfear\OAuth2\Client\Provider\Dropbox([
+        $this->provider = new \Stevenmaguire\OAuth2\Client\Provider\Dropbox([
             'clientId' => 'mock_client_id',
             'clientSecret' => 'mock_secret',
             'redirectUri' => 'none',

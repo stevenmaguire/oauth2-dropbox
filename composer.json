@@ -1,16 +1,16 @@
 {
-    "name": "pixelfear/oauth2-dropbox",
+    "name": "stevenmaguire/oauth2-dropbox",
     "description": "Dropbox OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
     "license": "MIT",
     "authors": [
         {
-            "name": "Jason Varga",
-            "email": "jason@pixelfear.com",
-            "homepage": "https://github.com/pixelfear"
-        },
-        {
             "name": "Steven Maguire",
             "email": "stevenmaguire@gmail.com",
+            "homepage": "https://github.com/stevenmaguire"
+        },
+        {
+            "name": "Jason Varga",
+            "email": "jason@stevenmaguire.com",
             "homepage": "https://github.com/stevenmaguire"
         }
     ],
@@ -33,12 +33,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Pixelfear\\OAuth2\\Client\\": "src/"
+            "Stevenmaguire\\OAuth2\\Client\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Pixelfear\\OAuth2\\Client\\Test\\": "tests/src/"
+            "Stevenmaguire\\OAuth2\\Client\\Test\\": "tests/src/"
         }
     }
 }
