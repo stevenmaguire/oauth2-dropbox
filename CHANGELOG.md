@@ -1,6 +1,23 @@
 # Changelog
 All Notable changes to `oauth2-dropbox` will be documented in this file
 
+## 3.0.0 - 2017-07-13
+
+### Added
+- Dropbox API v2 support - thanks @iget-esoares
+
+### Deprecated
+- Dropbox API v1 support
+
+### Fixed
+- Nothing
+
+### Removed
+- Nothing
+
+### Security
+- Nothing
+
 ## 2.0.0 - 2017-02-03
 
 ### Added
