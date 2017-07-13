@@ -58,7 +58,7 @@ class DropboxTest extends \PHPUnit_Framework_TestCase
         $url = $this->provider->getAuthorizationUrl();
         $uri = parse_url($url);
 
-        $this->assertEquals('/1/oauth2/authorize', $uri['path']);
+        $this->assertEquals('/oauth2/authorize', $uri['path']);
     }
 
     public function testGetBaseAccessTokenUrl()
@@ -68,13 +68,13 @@ class DropboxTest extends \PHPUnit_Framework_TestCase
         $url = $this->provider->getBaseAccessTokenUrl($params);
         $uri = parse_url($url);
 
-        $this->assertEquals('/1/oauth2/token', $uri['path']);
+        $this->assertEquals('/oauth2/token', $uri['path']);
     }
 
     public function testGetAccessToken()
     {
         $response = m::mock('Psr\Http\Message\ResponseInterface');
-        $response->shouldReceive('getBody')->andReturn('{"access_token": "mock_access_token", "token_type": "bearer", "uid": "12345"}');
+        $response->shouldReceive('getBody')->andReturn('{"access_token": "mock_access_token", "token_type": "bearer", "account_id": "12345", "uid": "deprecated_id"}');
         $response->shouldReceive('getHeader')->andReturn(['content-type' => 'json']);
 
         $client = m::mock('GuzzleHttp\ClientInterface');
@@ -92,14 +92,15 @@ class DropboxTest extends \PHPUnit_Framework_TestCase
     public function testUserData()
     {
         $name = uniqid();
-        $userId = rand(1000,9999);
+
+        $account_id = 'dbid:' . rand(1000, 9999);
 
         $postResponse = m::mock('Psr\Http\Message\ResponseInterface');
-        $postResponse->shouldReceive('getBody')->andReturn('{"access_token": "mock_access_token", "token_type": "bearer", "uid": "12345"}');
+        $postResponse->shouldReceive('getBody')->andReturn('{"access_token": "mock_access_token", "token_type": "bearer", "account_id": "' . $account_id . '", "uid": "12345"}');
         $postResponse->shouldReceive('getHeader')->andReturn(['content-type' => 'json']);
 
         $userResponse = m::mock('Psr\Http\Message\ResponseInterface');
-        $userResponse->shouldReceive('getBody')->andReturn('{"uid": '.$userId.',"display_name": "'.$name.'","name_details": {"familiar_name": "John","given_name": "John","surname": "User"},"referral_link": "https://www.dropbox.com/referrals/r1a2n3d4m5s6t7","country": "US","locale": "en","is_paired": false,"team": {"name": "Acme Inc.","team_id": "dbtid:1234abcd"},"quota_info": {"shared": 253738410565,"quota": 107374182400000,"normal": 680031877871}}');
+        $userResponse->shouldReceive('getBody')->andReturn('{"account_id": "' . $account_id . '", "name": {"given_name": "'. $name . '", "surname": "'. $name . '", "familiar_name": "'. $name . '", "display_name": "'. $name . '", "abbreviated_name": "XX"}, "email": "email@domain.com", "email_verified": true, "profile_photo_url": "https://dl-web.dropbox.com/account_photo/get/xxxxxxxxx", "disabled": false, "country": "BR", "locale": "pt-BR", "referral_link": "https://db.tt/XXXXXXX", "is_paired": false, "account_type": {".tag": "basic"}}');
         $userResponse->shouldReceive('getHeader')->andReturn(['content-type' => 'json']);
 
         $client = m::mock('GuzzleHttp\ClientInterface');
@@ -111,10 +112,10 @@ class DropboxTest extends \PHPUnit_Framework_TestCase
         $token = $this->provider->getAccessToken('authorization_code', ['code' => 'mock_authorization_code']);
         $user = $this->provider->getResourceOwner($token);
 
-        $this->assertEquals($userId, $user->getId());
-        $this->assertEquals($userId, $user->toArray()['uid']);
+        $this->assertEquals($account_id, $user->getId());
+        $this->assertEquals($account_id, $user->toArray()['account_id']);
         $this->assertEquals($name, $user->getName());
-        $this->assertEquals($name, $user->toArray()['display_name']);
+        $this->assertEquals($name, $user->toArray()['name']['display_name']);
     }
 
     /**

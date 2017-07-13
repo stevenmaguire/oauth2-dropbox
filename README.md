@@ -17,6 +17,12 @@ To install, use composer:
 composer require stevenmaguire/oauth2-dropbox
 ```
 
+**Note:** Due API deprecation, we dropped support to Dropbox API v1. If you need use v1, please use `^2.0.0` version constraint:
+
+```
+composer require "stevenmaguire/oauth2-dropbox:^2.0.0"
+```
+
 ## Usage
 
 Usage is the same as The League's OAuth client, using `\Stevenmaguire\OAuth2\Client\Provider\Dropbox` as the provider.
