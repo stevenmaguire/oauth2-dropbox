@@ -32,7 +32,7 @@ class DropboxResourceOwner implements ResourceOwnerInterface
      */
     public function getId()
     {
-        return $this->getValueByKey($this->response,'account_id');
+        return $this->getValueByKey($this->response, 'account_id');
     }
 
     /**
@@ -42,7 +42,7 @@ class DropboxResourceOwner implements ResourceOwnerInterface
      */
     public function getName()
     {
-        return $this->getValueByKey($this->response,'name.display_name');
+        return $this->getValueByKey($this->response, 'name.display_name');
     }
 
     /**
