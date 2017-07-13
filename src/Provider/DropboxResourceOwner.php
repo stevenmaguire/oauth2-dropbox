@@ -30,7 +30,7 @@ class DropboxResourceOwner implements ResourceOwnerInterface
      */
     public function getId()
     {
-        return $this->response['uid'] ?: null;
+        return $this->response['account_id'] ?: null;
     }
 
     /**
@@ -40,7 +40,7 @@ class DropboxResourceOwner implements ResourceOwnerInterface
      */
     public function getName()
     {
-        return $this->response['display_name'] ?: null;
+        return $this->response['name']['display_name'] ?: null;
     }
 
     /**
