@@ -3,9 +3,11 @@
 namespace Stevenmaguire\OAuth2\Client\Provider;
 
 use League\OAuth2\Client\Provider\ResourceOwnerInterface;
+use League\OAuth2\Client\Tool\ArrayAccessorTrait;
 
 class DropboxResourceOwner implements ResourceOwnerInterface
 {
+    use ArrayAccessorTrait;
     /**
      * Raw response
      *
@@ -30,7 +32,7 @@ class DropboxResourceOwner implements ResourceOwnerInterface
      */
     public function getId()
     {
-        return $this->response['account_id'] ?: null;
+        return $this->getValueByKey($this->response,'account_id');
     }
 
     /**
@@ -40,7 +42,7 @@ class DropboxResourceOwner implements ResourceOwnerInterface
      */
     public function getName()
     {
-        return $this->response['name']['display_name'] ?: null;
+        return $this->getValueByKey($this->response,'name.display_name');
     }
 
     /**
