@@ -15,7 +15,7 @@ class Dropbox extends AbstractProvider
     /**
      * @var string Key used in the access token response to identify the resource owner.
      */
-    const ACCESS_TOKEN_RESOURCE_OWNER_ID = 'uid';
+    const ACCESS_TOKEN_RESOURCE_OWNER_ID = 'account_id';
 
     /**
      * Get authorization url to begin OAuth flow
@@ -24,7 +24,7 @@ class Dropbox extends AbstractProvider
      */
     public function getBaseAuthorizationUrl()
     {
-        return 'https://www.dropbox.com/1/oauth2/authorize';
+        return 'https://api.dropbox.com/oauth2/authorize';
     }
 
     /**
@@ -34,7 +34,7 @@ class Dropbox extends AbstractProvider
      */
     public function getBaseAccessTokenUrl(array $params)
     {
-        return 'https://api.dropbox.com/1/oauth2/token';
+        return 'https://api.dropbox.com/oauth2/token';
     }
 
     /**
@@ -46,7 +46,7 @@ class Dropbox extends AbstractProvider
      */
     public function getResourceOwnerDetailsUrl(AccessToken $token)
     {
-        return 'https://api.dropbox.com/1/account/info';
+        return 'https://api.dropbox.com/2/users/get_current_account';
     }
 
     /**
