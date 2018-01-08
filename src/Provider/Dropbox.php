@@ -95,6 +95,21 @@ class Dropbox extends AbstractProvider
     }
 
     /**
+     * Requests resource owner details.
+     *
+     * @param  AccessToken $token
+     * @return mixed
+     */
+    protected function fetchResourceOwnerDetails(AccessToken $token)
+    {
+        $url = $this->getResourceOwnerDetailsUrl($token);
+
+        $request = $this->getAuthenticatedRequest(self::METHOD_POST, $url, $token);
+
+        return $this->getParsedResponse($request);
+    }
+
+    /**
      * Builds the authorization URL.
      *
      * @param  array $options
