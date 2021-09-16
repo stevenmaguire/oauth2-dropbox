@@ -24,7 +24,7 @@ class Dropbox extends AbstractProvider
      */
     public function getBaseAuthorizationUrl()
     {
-        return 'https://api.dropbox.com/oauth2/authorize';
+        return 'https://www.dropbox.com/oauth2/authorize';
     }
 
     /**
