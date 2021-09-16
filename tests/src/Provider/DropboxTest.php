@@ -4,8 +4,9 @@ namespace Stevenmaguire\OAuth2\Client\Test\Provider;
 
 use League\OAuth2\Client\Tool\QueryBuilderTrait;
 use Mockery as m;
+use PHPUnit\Framework\TestCase;
 
-class DropboxTest extends \PHPUnit_Framework_TestCase
+class DropboxTest extends TestCase
 {
     use QueryBuilderTrait;
 
