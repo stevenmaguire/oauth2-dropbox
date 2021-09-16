@@ -1,6 +1,23 @@
 # Changelog
 All Notable changes to `oauth2-dropbox` will be documented in this file
 
+## 3.1.0 - 2021-09-16
+
+### Added
+- Nothing
+
+### Deprecated
+- Nothing
+
+### Fixed
+- Updated base authorization url - thanks @josiasmontag
+
+### Removed
+- Nothing
+
+### Security
+- Nothing
+
 ## 3.0.1 - 2018-01-08
 
 ### Added
@@ -10,7 +27,7 @@ All Notable changes to `oauth2-dropbox` will be documented in this file
 - Nothing
 
 ### Fixed
-- Corrected HTTP verb, was GET now POST, for fetching resource owner details - thanks @GVSO 
+- Corrected HTTP verb, was GET now POST, for fetching resource owner details - thanks @GVSO
 
 ### Removed
 - Nothing
