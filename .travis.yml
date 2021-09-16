@@ -13,26 +13,9 @@ matrix:
         - php: 7.4
         - php: 8.0
         - php: nightly
-        - php: hhvm-4.56
-          sudo: required
-          dist: trusty
-          group: edge
-        - php: hhvm-4.80
-          sudo: required
-          dist: trusty
-          group: edge
-        - php: hhvm-4.102
-          sudo: required
-          dist: trusty
-          group: edge
-        - php: hhvm-nightly
-          sudo: required
-          dist: trusty
-          group: edge
     fast_finish: true
     allow_failures:
         - php: nightly
-        - php: hhvm-nightly
         - php: 8.0
 
 before_script:
